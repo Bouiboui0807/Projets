@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="IMAGES/Icon.png"/>
+    <link rel="stylesheet" href="Main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@100;900&display=swap" rel="stylesheet">
+    <title>Générateur de QR Code</title>
+</head>
+<body>
+  <header class="headermain">
+    <h2 class="maintitle"><span><strong>QR Code Generator</strong></span></h2>
+    <a href="https://github.com/Bouiboui0807" class="infosup">Voir plus du développeur</a>
+  </header>
+  
+  <div class="ui-container">
+    <div class="left-section">
+      <div class="paste-section">
+        <h3 class="placeindicator">Placez votre texte ici :</h3>
+
+        <div class="input-wrapper">
+          <div class="input-group">
+            <input type="text" class="textInput" id="textInput" placeholder="Collez votre texte…" />
+          </div>
+          <div class="inputgrpb">
+            <button id="pasteBtn" class="paste-btn">📋</button>
+            <button id="delBtn" class="del-btn">❌</button>
+          </div>
+          <div class="gcsBtns">
+            <button class="gen" id="gen"><span>Générer</span></button>
+            <button class="saveimg" id="saveimg">Enregistrer l'image</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone QR -->
+    <div class="qr-zone">
+      <div class="qr-box">
+        <div class="qr-content">
+          <canvas id="qrcodeCanvas" height="450" width="450"></canvas>
+        </div>
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+      </div>
+    </div>
+
+    <!-- Options -->
+    <div class="options-zone">
+
+      <!-- Récupération -->
+      <div class="option-block">
+        <div class="option-title">
+          <h3 class="recuphead">Choisissez la récupération</h3>
+          <span class="info-icon recupset">i</span>
+        </div>
+        <div class="radio-list">
+          <label>
+            <input type="radio" name="recovery" value=0>
+            <span>Basse</span>
+          </label>
+          <label>
+            <input type="radio" name="recovery" value=1>
+            <span>Normale</span>
+          </label>
+          <label>
+            <input type="radio" name="recovery" value=2>
+            <span>Haute</span>
+          </label>
+          <label>
+            <input type="radio" name="recovery" value=3>
+            <span>Très haute</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Style -->
+      <div class="option-block">
+        <div class="option-title">
+          <h3 class="stylehead">Choisissez le style</h3>
+          <span class="info-icon styleset">i</span>
+          <section class="stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+          </section>
+        </div>
+
+        <div class="style-grid">
+          <!-- 12 styles -->
+          <label class="style0"><input type="radio" name="style" value=0></label>
+          <label class="style1"><input type="radio" name="style" value=1></label>
+          <label class="style2"><input type="radio" name="style" value=2></label>
+          <label class="style3"><input type="radio" name="style" value=3></label>
+
+          <label class="style4"><input type="radio" name="style" value=4></label>
+          <label class="style5"><input type="radio" name="style" value=5></label>
+          <label class="style6"><input type="radio" name="style" value=6></label>
+          <label class="style7"><input type="radio" name="style" value=7></label>
+
+          <label class="style8"><input type="radio" name="style" value=8></label>
+          <label class="style9"><input type="radio" name="style" value=9></label>
+          <label class="style10"><input type="radio" name="style" value=10></label>
+          <label class="style11"><input type="radio" name="style" value=11></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Section informations -->
+  <div class="bottom-container">
+    <div class="bleft-section">
+      <header class="helpheader">
+        <h2>Comment m'utiliser ?</h2>
+      </header>
+
+      <div class="helpcont">
+        <p>Commencez par mettre votre texte dans la case désignée, ce texte peut être un lien, des chiffres, n'importe quoi ! <br/> Ensuite, choisissez une récupération, vous pouvez vous référencer au paragraphe à droite. <br/> Enfin choisissez le style que vous voulez donner à votre QR-Code ! <br/>Une fois toutes les étapes cochées, cliquez sur "Générer" et c'est fini !</p>
+      </div>
+    </div>
+
+    <div class="bright-section">
+      <div class="slider-box">
+        <div class="slider-track">
+          <section class="slide active">
+            <header class="slide-header pri">
+              <h2>La récupération</h2>
+            </header>
+
+            <div class="slide-content pri">
+              <p>La récupération désigne le niveau de lisibilité du QR-Code endommagé. C'est à dire que si le QR-Code est gravement endommagé (ça peut être en plaçant une image sur le QR-Code), un plus haut niveau de récupération sauvera les données et permettra de le lire correctement.<br/>Cependant plus haut est le niveau de récupération, moins le QR-Code pourra stocker de caractères.</p>
+            </div>
+          </section>
+
+          <section class="slide">
+            <header class="slide-header sec">
+              <h2>Le style</h2>
+            </header>
+            
+            <div class="slide-content sec">
+              <p>Choisissez le style de votre QR-Code ! Veillez à noter qu'un QR-Code avec des carrés classiques restera le plus lisible, quoique très ordinaire... <br/>Le nombre d'étoiles indique sa lisibilité avec le style appliqué.</p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Flèches -->
+        <button class="arrow arrow-left" aria-label="Section précédente">‹</button>
+        <button class="arrow arrow-right" aria-label="Section suivante">›</button>
+
+        <!-- Indicateurs -->
+        <div class="dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="notif" class="notif">
+      <span class="notif-text"></span>
+      <button class="notif-close">✕</button>
+  </div>
+  <script src="Main.js" defer></script>
+  <script src="QR-Gen.js" defer></script>
+</body>
