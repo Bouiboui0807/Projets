@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+body.yesPressed {
+    background-image: url("Bgletter.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    text-align: center;
+}
+
+.header {
+    transform: translateY(40vh);
+}
+
+h1, p {
+    margin: 0;
+    padding: 10px;
+}
+
+p {
+    font-size: large;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: large;
+    border-radius: 10px;
+    border: 2px solid black;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+}
+
+.ouiBtn {
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: green;
+    cursor: pointer;
+}
+
+.nonBtn {
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    cursor: pointer;
+}
+
+#confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.boring {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.Message {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.mdp {
+    opacity: 0;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+}
+
+.load {
+    opacity: 0;
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
